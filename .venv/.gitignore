@@ -1,0 +1,21 @@
+# created by virtualenv automatically
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+.ipynb_checkpoints/
+*.log
+
+# Data
+data/processed/*.parquet
+data/raw/*
+!data/raw/.gitkeep
+!data/reference/*
+!data/processed/.gitkeep
+
+# Docker
+*.pid
+
+# OS
+.DS_Store
