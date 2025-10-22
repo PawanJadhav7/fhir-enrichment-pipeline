@@ -19,3 +19,10 @@ star:
 
 test:
 	pytest -q
+assets:
+	@mkdir -p assets/diagrams
+	@touch assets/diagrams/.gitkeep
+	@git add assets/diagrams/.gitkeep
+	@git commit -m "chore: add assets/diagrams with .gitkeep" || true
+	@git push origin main || true
+	@echo "✅ assets/diagrams ready and pushed (if there were new changes)."
