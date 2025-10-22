@@ -17,6 +17,3 @@ data/processed/*
 .idea/
 .vscode/
 EOF
-
-# stop tracking venv if it ever got added
-git rm -r --cached .venv 2>/dev/null || true
