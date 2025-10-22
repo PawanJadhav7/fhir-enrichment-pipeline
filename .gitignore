@@ -1,20 +1,22 @@
+cat > .gitignore << 'EOF'
 # Python
 __pycache__/
 *.pyc
 .venv/
 .env
 .ipynb_checkpoints/
-*.log
 
 # Data
-data/processed/*.parquet
 data/raw/*
 !data/raw/.gitkeep
-!data/reference/*
+data/processed/*
 !data/processed/.gitkeep
 
-# Docker
-*.pid
-
-# OS
+# OS/IDE
 .DS_Store
+.idea/
+.vscode/
+EOF
+
+# stop tracking venv if it ever got added
+git rm -r --cached .venv 2>/dev/null || true
