@@ -6,19 +6,19 @@
 
 ## Stack
 
-- **Python** (pandas, pyarrow, pandera), **R** (R Markdown)
-- Storage: **Parquet** (local) – optionally Snowflake/Redshift
-- Orchestration: **Makefile** (local); GitHub **Actions** for CI
-- Container: **Docker**
-- Synthetic data: generate with **Synthea** or use included samples
+-   **Python** (pandas, pyarrow, pandera), **R** (R Markdown)
+-   Storage: **Parquet** (local) – optionally Snowflake/Redshift
+-   Orchestration: **Makefile** (local); GitHub **Actions** for CI
+-   Container: **Docker**
+-   Synthetic data: generate with **Synthea** or use included samples
 
 ## Pipeline
 
-1. **Ingest**: parse FHIR JSON (Patient, Encounter, Observation) → bronze parquet (`data/processed/bronze_*`)
-2. **Validate**: schema and DQ checks (not_null, accepted_values, referential integrity)
-3. **Enrich**: map ICD-10 to high-level categories; group LOINC; derive clinically relevant flags (e.g., abnormal labs)
-4. **Model**: produce **star schema** (patient_dim, date_dim, encounter_fact, lab_obs_fact) + **features** for risk signals
-5. **Load**: keep parquet locally; optional load to Snowflake/Redshift (SQL provided)
+1.  **Ingest**: parse FHIR JSON (Patient, Encounter, Observation) → bronze parquet (`data/processed/bronze_*`)
+2.  **Validate**: schema and DQ checks (not_null, accepted_values, referential integrity)
+3.  **Enrich**: map ICD-10 to high-level categories; group LOINC; derive clinically relevant flags (e.g., abnormal labs)
+4.  **Model**: produce **star schema** (patient_dim, date_dim, encounter_fact, lab_obs_fact) + **features** for risk signals
+5.  **Load**: keep parquet locally; optional load to Snowflake/Redshift (SQL provided)
 
 ## Quickstart
 
@@ -44,5 +44,5 @@ make features
 make star
 
 # 4) See outputs
-tree data/processed
+tree data/processed## 🏗️ Architecture Overview![FHIR Enrichment Architecture](assets/diagrams/fhir_enrichment_arch.png)**Flow Summary:**
 ```
