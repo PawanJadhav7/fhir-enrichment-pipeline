@@ -24,25 +24,4 @@
 
 ```bash
 # 0) Clone
-git clone https://github.com/<your-username>/fhir-enrichment-pipeline
-cd fhir-enrichment-pipeline
-
-# 1) Create env or use Docker
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-# 2) Put synthetic FHIR JSON in data/raw/  (or use sample already included)
-#    Example: data/raw/Patient/*.json, Encounter/*.json, Observation/*.json
-
-# 3) Run pipeline
-make all
-# or step-by-step
-make ingest
-make dq
-make enrich
-make features
-make star
-
-# 4) See outputs
-tree data/processed## 🏗️ Architecture Overview![FHIR Enrichment Architecture](assets/diagrams/fhir_enrichment_arch.png)**Flow Summary:**
 ```
