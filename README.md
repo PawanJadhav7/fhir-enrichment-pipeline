@@ -49,3 +49,94 @@ make star
 # 6) View outputs
 tree data/processed
 ```
+
+## 📊 Results & Outputs
+
+The FHIR Enrichment Pipeline successfully runs end-to-end on sample synthetic FHIR data (1 Patient, 1 Encounter, 1 Observation). All transformation layers — from **Bronze → Silver → Feature → Star Schema** — executed without error.
+
+Stage
+
+Dataset
+
+Description
+
+Rows
+
+🟤 Bronze
+
+`bronze_patient.parquet`
+
+Flattened Patient resources
+
+1
+
+🟤 Bronze
+
+`bronze_encounter.parquet`
+
+Flattened Encounter records
+
+1
+
+🟤 Bronze
+
+`bronze_observation.parquet`
+
+Flattened Observation records
+
+1
+
+⚪ Silver
+
+`silver_encounter_enriched.parquet`
+
+ICD-10 category join for encounters
+
+1
+
+⚪ Silver
+
+`silver_observation_enriched.parquet`
+
+LOINC group enrichment for observations
+
+1
+
+🧠 Feature
+
+`features_sepsis.parquet`
+
+Derived lactate-based abnormal flag
+
+1
+
+🗂️ Star Schema
+
+`patient_dim.parquet`
+
+Patient dimension (de-duplicated)
+
+1
+
+🗂️ Star Schema
+
+`encounter_fact.parquet`
+
+Encounter + feature joins
+
+1
+
+🧾 Fact
+
+`lab_observations.parquet`
+
+Observation facts for analytics
+
+1
+
+**Highlights:**
+
+-   ✅ Modular Python pipeline — easily extensible for new FHIR resources or vocabularies.
+-   ✅ Schema & data-quality validation powered by **Pandera**.
+-   ✅ Reproducible transformations managed via **Makefile orchestration** (`make all`).
+-   ✅ Fully compliant with **HL7 FHIR JSON → Parquet** conversion best practices.
