@@ -1,4 +1,4 @@
-# 🏥 FHIR Enrichment Pipeline (Portfolio Project# 🏥 FHIR Enrichment Pipeline (Portfolio Project)
+# 🏥 FHIR Enrichment Pipeline
 
 **Goal:** Build a reproducible pipeline that ingests synthetic **FHIR** resources, **validates data quality**, **enriches** with clinical vocab mappings (ICD-10, LOINC), and produces curated **analytics-ready tables** (star schema + features) for sepsis/acute-care use-cases.
 
